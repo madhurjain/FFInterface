@@ -1,0 +1,56 @@
+1. FFInterface.exe is a small utility created using VB .NET 2008.
+2. FFInterface.xpi is the firefox extension.
+3. VBdotNET_Source directory contains the Complete Source Code for FFInterface.exe utility.
+4. TestPage.html is a Test Page with a Form for testing purpose.
+
+Installation : Firefox Extension (FFInterface.xpi)
+==================================================
+
+1. Open Mozilla Firefox.
+2. Click File -> Open File -> FFInterface.xpi
+3. Click Install Now.
+4. A browser restart is required.
+5. After browser is restarted, you'll see FFInterface in the newly installed addons list.
+6. Now you can click Tools -> FFInterface to change the settings for this extension.
+   You can change the port, you can enable/disable AutoStart and you can Start/Stop the listening.
+
+
+Working
+=======
+
+1. After FFInterface addon is installed, open firefox, make sure the extension is running. (Tools -> FFInterface), if its "Stop FFInterface", means FFInterface is already running.
+
+2. Open FFInterface.exe
+
+3. Click Connect.
+
+4. The text specified in Send Textbox is sent to firefox and the text received from firefox is displayed in Received textbox.
+
+5. Now, open "TestPage.html" (included) in currently running firefox window.
+
+6. In the Name textbox on TestPage, enter some text.
+
+7. Now switch to FFInterface.exe utility, in its send textbox,enter : "gi|N1" (without quotes). Click Send.
+
+8. In the Received textbox, you'll see the text entered in Name textbox on TestPage.
+
+9. "gi" specifies getElementById and "gn" specifies getElementsByName. "|" is used as a delimiter. The second argument after delimiter should be ElementId or ElementName for gi and gn respectively.
+
+Example:-
+gi|N1
+gn|Name1
+gi|G11|Checked
+gn|Gen1 
+
+
+10. To set a specific element on the page open inside firefox, the format is "s|<javascript>"
+
+Example:-
+s|document.F.N1.value='blah'
+s|document.F.G11.checked=true
+s|document.F.Sub1.Click();
+
+
+Here, F is the Formname, N1 is ElementId for Name Textbox, G11 is ElementId for Male Radiobutton, Sub1 is the name of the Submit button.
+
+11. I've also added a feature to send raw string as URL. So, you can send a string say "www.google.com", to open google. Or you can send any javascript, which will get interpreted inside the browser.
