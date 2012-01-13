@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE overlay>
+<overlay id="FFInterface-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript" src="chrome://FFInterface/content/FFInterface.js"/>
+
+<commandset id="mainCommandSet">
+    <command id="FFInterface-command-toggle"
+             label="Start FFInterface"
+             accesskey="S"
+             oncommand="toggleServer(this);"/>
+    <command id="FFInterface-command-autostart"
+             label="Activate on startup"
+             accesskey="s"
+             oncommand="togglePref('autoStart');"/>
+    <command id="FFInterface-command-change-port"
+             label="Change port"
+             accesskey="p"
+             oncommand="changePort();"/>
+</commandset>
+
+  <menupopup id="menu_ToolsPopup">
+    <menu label="FFInterface" position="1" accesskey="F">
+      <menupopup onpopupshowing="updateMenu(this);">
+        <menuitem command="FFInterface-command-toggle"/>
+        <menuitem command="FFInterface-command-autostart" type="checkbox"/>
+        <menuitem command="FFInterface-command-change-port"/>
+      </menupopup>
+    </menu>
+  </menupopup>
+
+</overlay>
